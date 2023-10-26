@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import AccordionArea from './ui/accordion/AccordionArea'
-import AccordionBtn from './ui/accordion/AccordionBtn'
 import AccordionItem from './ui/accordion/AccordionItem'
-import AccordionPanel from './ui/accordion/AccordionPanel'
 import { data } from '../utils/accordionData'
 
 const Accordion = () : JSX.Element => {
-  // const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<number>(0);
 
   return (
     <AccordionArea>
-      {data.map((item, i): JSX.Element => {
+      {data.map((item): JSX.Element => {
         return (
-          <AccordionItem key={i} {...item} />
+          <AccordionItem key={item.id} {...item} isSelected = {item.id ===  isActive} setIsActive={setIsActive} />
         )
       })}
     </AccordionArea>

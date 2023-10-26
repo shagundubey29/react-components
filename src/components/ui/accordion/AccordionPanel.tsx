@@ -1,15 +1,21 @@
-const AccordionPanel = ({
-  children,
-  isOpen,
-}: {
+interface panelProp {
   children: React.ReactNode
   isOpen: boolean
-}) => {
+  isSelected: boolean
+}
+
+const AccordionPanel = ({ children, isOpen, isSelected }: panelProp) => {
+  // if (isSelected) {
+  //   isOpen = false
+  // }
   return (
     <>
-        <div className= {` transition-all duration-500 h-0 overflow-hidden ${isOpen ? 'h-[5rem] overflow-y-auto pb-3 scrollbar-thumb-rose-500' : " pb-0"}`} >
-            <p className=" text-base">{children}</p>
-        </div>
+      <div
+        className={` transition-all duration-500  origin-top overflow-hidden 
+        ${isSelected ? ' scale-y-100 px-3 pb-3' : 'scale-y-0 pb-0 h-0'} `}
+      >
+        <p className=" text-base ">{children}</p>
+      </div>
     </>
   )
 }
