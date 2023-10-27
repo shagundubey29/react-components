@@ -1,10 +1,13 @@
-import Accordion from "./components/Accordion"
+// import Accordion from "./components/Accordion"
+
+import Home from "./pages/Home"
 
 function App() {
 
   return (
     <>
-      <Accordion />
+      {/* <Accordion /> */}
+      <Home />
     </>
   )
 }
