@@ -1,18 +1,11 @@
 import { BiChevronUp } from 'react-icons/bi'
-
 interface BtnProps {
   children: React.ReactNode
   handleClick: () => void
-  isOpen: boolean
   isSelected: boolean
 }
 
-const AccordionBtn = ({
-  children,
-  handleClick,
-  isOpen,
-  isSelected,
-}: BtnProps) => {
+const AccordionBtn = ({ children, handleClick, isSelected }: BtnProps) => {
   return (
     <button
       className=" w-full flex flex-row justify-between items-center border-t  hover:bg-slate-200 p-3"

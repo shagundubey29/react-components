@@ -1,13 +1,9 @@
 interface panelProp {
   children: React.ReactNode
-  isOpen: boolean
   isSelected: boolean
 }
 
-const AccordionPanel = ({ children, isOpen, isSelected }: panelProp) => {
-  // if (isSelected) {
-  //   isOpen = false
-  // }
+const AccordionPanel = ({ children, isSelected }: panelProp) => {
   return (
     <>
       <div

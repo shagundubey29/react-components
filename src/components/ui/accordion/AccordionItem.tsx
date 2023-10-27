@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import AccordionBtn from './AccordionBtn'
 import AccordionPanel from './AccordionPanel'
 
@@ -17,11 +16,7 @@ const AccordionItem = ({
   ques,
   text
 }: itemProp) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
   const handleClick = () => {
-    console.log(id)
-    setIsOpen(!isOpen)
     setIsActive(id)
   }
 
@@ -29,12 +24,11 @@ const AccordionItem = ({
     <li className=" w-full flex justify-center items-center flex-col last:border-b">
       <AccordionBtn
         handleClick={() => handleClick()}
-        isOpen={isOpen}
         isSelected={isSelected}
       >
         {ques}
       </AccordionBtn>
-      <AccordionPanel isOpen={isOpen} isSelected={isSelected}>
+      <AccordionPanel  isSelected={isSelected}>
         {text}
       </AccordionPanel>
     </li>
