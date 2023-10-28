@@ -1,14 +1,13 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import Drawer from '../components/drawer/Drawer'
 import Button from '../components/ui/Button'
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const firstInputRef = useRef<HTMLInputElement>(null)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const openDrawer = () => {
-    setIsOpen(true);
-  };
+    setIsOpen(true)
+  }
 
   return (
     <>
@@ -25,7 +24,7 @@ const Home = () => {
           Edit Info
         </Button>
       </div>
-      <Drawer isOpen={isOpen} setIsOpen={setIsOpen} ref={firstInputRef} />
+      <Drawer isOpen={isOpen} setIsOpen={setIsOpen}/>
     </>
   )
 }

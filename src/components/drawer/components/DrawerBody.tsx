@@ -2,16 +2,18 @@ import { forwardRef } from "react"
 
 const DrawerBody = forwardRef<HTMLInputElement>(
   (props, ref): JSX.Element => {
+
     return (
       <div className=" flex flex-col w- px-2">
         <div className=" flex flex-col p-4 gap-4">
-          <label htmlFor="userName" className=" text-lg">
+          <label htmlFor="username" className=" text-lg">
             Name
           </label>
           <input
             id="username"
             placeholder="Enter your name"
             ref={ref}
+            autoFocus={true}
             className=" border py-2 px-4 rounded-md focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all duration-300"
           />
         </div>

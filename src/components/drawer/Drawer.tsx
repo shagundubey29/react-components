@@ -1,4 +1,4 @@
-import { forwardRef} from 'react'
+import { useEffect, useRef} from 'react'
 import Button from '../ui/Button'
 import DrawerBody from './components/DrawerBody'
 import DrawerContent from './components/DrawerContent'
@@ -8,14 +8,20 @@ import DrawerHeader from './components/DrawerHeader'
 interface drawerProp {
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-  ref: React.Ref<HTMLInputElement>
 }
 
-const Drawer = forwardRef<HTMLInputElement, drawerProp>(({
+const Drawer = ({
   isOpen,
   setIsOpen,
-  ref
-}) => {
+} : drawerProp) => {
+  const firstInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (isOpen && firstInputRef.current) {
+      console.log(firstInputRef.current)
+      firstInputRef.current.focus()
+    }
+  }, [isOpen, firstInputRef])
 
   const onCloseBtn = () => {
     setIsOpen(false)
@@ -29,7 +35,7 @@ const Drawer = forwardRef<HTMLInputElement, drawerProp>(({
     >
       <DrawerContent isOpen={isOpen}>
         <DrawerHeader setIsOpen={setIsOpen}>Create a new account</DrawerHeader>
-        <DrawerBody ref={ref}></DrawerBody>
+        <DrawerBody ref={firstInputRef} ></DrawerBody>
         <DrawerFooter>
           <Button variant="outline" handleClick={onCloseBtn}>
             Close
@@ -41,6 +47,6 @@ const Drawer = forwardRef<HTMLInputElement, drawerProp>(({
       </DrawerContent>
     </div>
   )
-})
+}
 
 export default Drawer
